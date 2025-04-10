@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "Restricted Area"
-AuthUserFile C:\MAMP\htdocs\payspedia_v3\pageweb\ai_chat\credentials.htpasswd
-Require valid-user
