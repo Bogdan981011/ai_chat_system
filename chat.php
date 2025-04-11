@@ -176,7 +176,12 @@
     </style>
 </head>
 <body>
-    <?php include ('../navbar.php'); ?>
+    <?php 
+    include ('../navbar.php'); 
+    
+    // Get the decision endpoint URL from environment variable or use default
+    $decisionEndpoint = getenv('DECISION_ENDPOINT_URL') ?: 'http://localhost:5000/decision';
+    ?>
     <div class="chat-container">
         <div class="chat-header">AI Chat Assistant</div>
         <div class="chat-messages" id="chatMessages"></div>
@@ -441,7 +446,7 @@ function sendMessage() {
     chatMessages.scrollTop = chatMessages.scrollHeight;
 
     // Send to backend via AJAX
-    fetch('http://localhost:5000/decision', {
+    fetch('/decision', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

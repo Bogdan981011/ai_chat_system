@@ -88,7 +88,7 @@ def decision_endpoint():
         decision = ai_decision_maker(user_message)
         
         # Forward the decision to chatbot.php using Basic HTTP Authentication
-        url = "http://localhost/payspedia_v3/pageweb/ai_chat/chatbot.php"
+        url = "http://127.0.0.1/chatbot.php"
         user = 'myuser'
         password = 'password'
         execution_response = requests.post(url, 
@@ -103,4 +103,6 @@ def decision_endpoint():
     return jsonify(execution_result)
 
 if __name__ == '__main__':
+    # Note: For internal communication, port 5000 is fine.
     app.run(debug=False, host='0.0.0.0', port=5000)
+
