@@ -22,7 +22,7 @@ COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 
 # Install Python dependencies; ensure you have a requirements.txt in your project.
 COPY requirements.txt /tmp/requirements.txt
-RUN pip3 install -r /tmp/requirements.txt
+RUN pip3 install --break-system-packages -r /tmp/requirements.txt
 
 # Copy Supervisor config file into the container (we’ll create this next)
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
