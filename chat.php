@@ -177,7 +177,7 @@
 </head>
 <body>
     <?php 
-    include ('../navbar.php'); 
+    include ('navbar.php'); 
     
     // Get the decision endpoint URL from environment variable or use default
     $decisionEndpoint = getenv('DECISION_ENDPOINT_URL') ?: 'http://localhost:5000/decision';
