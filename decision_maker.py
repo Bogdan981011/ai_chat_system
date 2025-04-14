@@ -75,7 +75,7 @@ def ai_decision_maker(user_message):
     f" - For 'place details': list 5 places within the specified city and include their social media contacts or website links.\n\n"
 
     # Requête GPT
-    f"Based on the user message: '{user_message}', determine the appropriate task, create the correct formatted query, and provide the detailed informations in french as specified above.\n"
+    f"Based on the user message: '{user_message}', determine the appropriate task, create the correct formatted query, and provide the detailed informations in french.\n"
     f"Return only a JSON valid object with exactly three keys: 'task', 'formattedQuery' and 'informations'. The values of these keys need to be text strings.\n"
     f"Ensure the JSON is valid, well-structured and does not contain any unterminated strings or invalid characters.\n"
     )
