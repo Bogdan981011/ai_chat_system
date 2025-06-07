@@ -82,23 +82,25 @@ def ai_decision_maker(user_message):
     
     
     try:
-        response = client.responses.create(
-            model="gpt-3.5-turbo",  # ou un autre modèle de votre choix
-            instructions="system",
-            input=prompt,
-            max_output_tokens=200,
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": prompt}
+            ],
+            max_tokens=200,
             temperature=0.3
         )
-        output_text = response.output_text.strip()
+        output_text = response["choices"][0]["message"]["content"].strip()
         cleaned_output = clean_json_string(output_text)
-        # Essayer d'analyser la sortie de GPT en JSON
         json_response = json.loads(cleaned_output)
     except Exception as e:
-        # Utiliser une réponse par défaut en cas d'erreur
+        cleaned_output = "Erreur de traitement GPT"
         json_response = {
             "task": "problem",
             "formattedQuery": cleaned_output,
-            "debug_error": str(e),
+            "informations": "",
+            "debug_error": str(e)
         }
     return json_response
 
