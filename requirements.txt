@@ -14,7 +14,7 @@ RUN pip3 install --break-system-packages -r requirements.txt
 COPY . .
 
 # Set the command to run your app (update if needed)
-CMD ["python3", "app.py"]
+CMD ["python3", "decision_maker.py"]
 
 Flask>=2.0.0
 flask-cors>=3.0.10
