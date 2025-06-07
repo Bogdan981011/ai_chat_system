@@ -1,3 +1,21 @@
+# Use a Python base image
+FROM python:3.9-slim
+
+# Set the working directory
+WORKDIR /app
+
+# Copy requirements.txt first (important!)
+COPY requirements.txt .
+
+# Install Python dependencies
+RUN pip3 install --break-system-packages -r requirements.txt
+
+# Copy the rest of your code
+COPY . .
+
+# Set the command to run your app (update if needed)
+CMD ["python3", "app.py"]
+
 Flask>=2.0.0
 flask-cors>=3.0.10
 requests>=2.25.0
